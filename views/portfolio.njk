@@ -1,122 +1,51 @@
-{% extends 'layout.html' %}
+{% extends 'layout.njk' %}
 
 {% block head %}
-<title>Portfólio - Ederson Domiciano</title>
-   <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+  <title>Portfรณlio - Ederson Domiciano</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 {% endblock %}
 
 {% block content %}
-    <div id="wrapper">
-      <h1>Aulas</h1>
-    </div>
+  <div id="wrapper">
+    <h1>Aulas</h1>
+  </div>
 
-    <section class="cards">
+  <section class="cards">
+    <!-- Laço de repetição para pegar dados do array data.js  -->
+    {% for item in items %}
 
-      <div class="card" id="GykTLqODQuU">
-        <div class="card_image-card_container">
-          <img
-            src="https://img.youtube.com/vi/GykTLqODQuU/maxresdefault.jpg"
-            alt="Video Aula"
-          />
+      <div class="card" id="{{item.id}}">
+        <div class="card_image-card_container {{'featured-wrapper' if item.featured}}">
+          <img src="https://img.youtube.com/vi/{{item.id}}/maxresdefault.jpg" alt="Imagem de {{item.title}}"/>
+
+          <!--Pegando o featured do array data.js-->
+          {% if item.featured %}
+          <div class="featured">Featured</div>
+          {% endif %}
+        
         </div>
         <div class="card_content">
-          <p>Formulário Animado com JS puro e CSS Animation</p>
+          <p>{{item.title}}</p>
         </div>
         <div class="card_info">
-          <p>57min</p>
-          <p class="card_price">Free</p>
+          <p>{{item.duration}}</p>
+          <p class="card_price">{{item.price}}</p>
         </div>
       </div>
-      <div class="card" id="6wn8hpUcEcM">
-        <div class="card_image-card_container">
-          <img
-            src="https://img.youtube.com/vi/6wn8hpUcEcM/maxresdefault.jpg"
-            alt="Video Aula"
-          />
-        </div>
-        <div class="card_content">
-          <p>Drag and Drop Raiz com a API do HTML</p>
-        </div>
-        <div class="card_info">
-          <p>55 min</p>
-          <p class="card_price">Free</p>
-        </div>
+
+    {% endfor %}
+    <!-- Fim do laço  -->
+  </section>
+  <div class="modal-overlay">
+    <div class="modal">
+      <a href="" class="close-modal">
+        <i class="material-icons">close</i>
+      </a>
+      <div class="modal-content">
+        <iframe src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
       </div>
-      <div class="card" id="zy-B9d2ZVrw">
-        <div class="card_image-card_container">
-          <img
-            src="https://img.youtube.com/vi/zy-B9d2ZVrw/maxresdefault.jpg"
-            alt="Video Aula"
-          />
-        </div>
-        <div class="card_content">
-          <p>Navegador flutuante com ElectronJS</p>
-        </div>
-        <div class="card_info">
-          <p>22 min</p>
-          <p class="card_price">Free</p>
-        </div>
-      </div>
-      <div class="card" id="U7GjS3FuSkA">
-        <div class="card_image-card_container">
-          <img
-            src="https://img.youtube.com/vi/U7GjS3FuSkA/maxresdefault.jpg"
-            alt="Video Aula"
-          />
-        </div>
-        <div class="card_content">
-          <p>SQL no Node.js com Knex.js</p>
-          <br />
-        </div>
-        <div class="card_info">
-          <p>120 min</p>
-          <p class="card_price">Free</p>
-        </div>
-      </div>
-      <div class="card" id="-VQPimwkstM">
-        <div class="card_image-card_container">
-          <img
-            src="https://img.youtube.com/vi/-VQPimwkstM/maxresdefault.jpg"
-            alt="Video Aula"
-          />
-        </div>
-        <div class="card_content">
-          <p>Menu Estilo Tree View</p>
-          <br />
-        </div>
-        <div class="card_info">
-          <p>35 min</p>
-          <p class="card_price">Free</p>
-        </div>
-      </div>
-      <div class="card" id="nhW70H9H4gU">
-        <div class="card_image-card_container">
-          <img
-            src="https://img.youtube.com/vi/nhW70H9H4gU/maxresdefault.jpg"
-            alt="Video Aula"
-          />
-        </div>
-        <div class="card_content">
-          <p>Espaçamentos e a mágica do CSS Box Model</p>
-        </div>
-        <div class="card_info">
-          <p>39 min</p>
-          <p class="card_price">Free</p>
-        </div>
-      </div>
-    </section>
-    <div class="modal-overlay">
-      <div class="modal">
-        <a href="" class="close-modal">
-          <i class="material-icons">close</i>
-        </a>
-        <div class="modal-content">
-          <iframe src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div><!-- Adicionando video -->
-      </div>
+      <!-- Adicionando video -->
     </div>
-    <script src="/scripts.js"></script>
+  </div>
+  <script src="/scripts.js"></script>
 {% endblock %}

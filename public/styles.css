@@ -91,6 +91,8 @@ header {
 
 .card {
     background: var(--color-rocket);
+    display: grid;
+    cursor: pointer;
 }
 
 .card_image-card_container img {
@@ -104,6 +106,7 @@ header {
 .card_info {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
 }
 
 .card_price {
@@ -152,4 +155,18 @@ iframe {
     height: 90%;
     position: absolute;
     top: 5%;
+}
+
+/* === Featured === */
+.card_image-card_container{
+    position: relative;
+}
+.featured {
+    background: #f7d05f;
+    padding: 2px 8px;
+    color: black;
+    position: absolute;
+    right: 5px;
+    border-radius: 16px;
+    top: -10px;
 }

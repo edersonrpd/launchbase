@@ -4,6 +4,7 @@ module.exports = [
     title: "Formulário Animado com JS puro e CSS Animation",
     duration: "57 min",
     price: "Free",
+    featured: true,
   },
   {
     id: "6wn8hpUcEcM",
@@ -22,6 +23,7 @@ module.exports = [
     title: "SQL no Node.js com Knex.js",
     duration: "120 min",
     price: "Free",
+    featured: true,
   },
   {
     id: "-VQPimwkstM",
@@ -34,5 +36,6 @@ module.exports = [
     title: "Espaçamentos e a mágica do CSS Box Model",
     duration: "39 min",
     price: "Free",
+    featured: true,
   },
 ];
