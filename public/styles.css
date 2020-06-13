@@ -158,7 +158,7 @@ iframe {
 }
 
 /* === Featured === */
-.card_image-card_container{
+.featured-wrapper.card_image-card_container{
     position: relative;
 }
 .featured {
